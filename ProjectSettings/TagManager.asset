@@ -10,6 +10,8 @@ TagManager:
   - Kunai
   - Weapon
   - Bullet
+  - Obstacle
+  - Door
   layers:
   - Default
   - TransparentFX
@@ -19,9 +21,9 @@ TagManager:
   - UI
   - Weapon
   - Bullet
-  - 
-  - 
-  - 
+  - Obstacle
+  - Door
+  - Collectible
   - 
   - 
   - 
