@@ -27,8 +27,7 @@ public class WeaponController : MonoBehaviour
 
     void Update()
     {
-        float tempDistance = 0;
-        tempDistance = transform.position.z - spPoint.position.z;
+        float tempDistance = transform.position.z - spPoint.position.z;
         if (tempDistance >= distance)
         {
             GetBackToPool();

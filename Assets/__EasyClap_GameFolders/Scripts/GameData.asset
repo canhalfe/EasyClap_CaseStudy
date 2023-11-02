@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c39286b806255be4ab6e152827e49744, type: 3}
   m_Name: GameData
   m_EditorClassIdentifier: 
-  fireRate: 0.5
+  totalCoin: 0
+  fireRate: 0.75
   distance: 15
   power: 1

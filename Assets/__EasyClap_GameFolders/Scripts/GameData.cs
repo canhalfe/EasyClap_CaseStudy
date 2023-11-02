@@ -4,7 +4,9 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Scriptable Objects/Game Data")]
 public class GameData : ScriptableObject
 {
+    public float totalCoin;
     public float fireRate;
     public float distance;
     public float power;
+
 }

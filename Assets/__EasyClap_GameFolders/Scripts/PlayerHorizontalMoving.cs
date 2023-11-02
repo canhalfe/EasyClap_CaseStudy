@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerHorizontalMoving : MonoBehaviour
 {
+    GameManager gameManager;
     [Header("Movement")]
     [SerializeField] float speed;
     [SerializeField] float forwardSpeed;
@@ -14,29 +15,33 @@ public class PlayerHorizontalMoving : MonoBehaviour
 
     private void Start()
     {
-
+        gameManager = GameManager.Instance;
     }
     void FixedUpdate()
     {
-        transform.Translate(Vector3.forward * forwardSpeed * Time.fixedDeltaTime); // forward
-
-        if (Input.GetMouseButtonDown(0))
+        if (gameManager.gameStart)
         {
-            mZCoord = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
+            transform.Translate(Vector3.forward * forwardSpeed * Time.fixedDeltaTime); // forward
 
-            mOffset = gameObject.transform.position - GetMouseAsWorldPoint();
+            if (Input.GetMouseButtonDown(0))
+            {
+                mZCoord = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
+
+                mOffset = gameObject.transform.position - GetMouseAsWorldPoint();
+            }
+
+            if (Input.GetMouseButton(0))
+            {
+                Vector3 endPos = new Vector3((GetMouseAsWorldPoint().x + mOffset.x), transform.position.y, transform.position.z);
+
+                transform.position = Vector3.Lerp(transform.position, endPos, speed * Time.fixedDeltaTime);
+
+                transform.position =
+                    new Vector3(Mathf.Clamp(transform.position.x, -horizontalLimit, horizontalLimit), transform.position.y, transform.position.z);
+                // horizontal limit 
+            }
         }
-
-        if (Input.GetMouseButton(0))
-        {
-            Vector3 endPos = new Vector3((GetMouseAsWorldPoint().x + mOffset.x), transform.position.y, transform.position.z);
-
-            transform.position = Vector3.Lerp(transform.position, endPos, speed * Time.fixedDeltaTime);
-
-            transform.position = 
-                new Vector3(Mathf.Clamp(transform.position.x, -horizontalLimit, horizontalLimit), transform.position.y, transform.position.z); 
-            // horizontal limit 
-        }
+        
     }
 
     private Vector3 GetMouseAsWorldPoint()

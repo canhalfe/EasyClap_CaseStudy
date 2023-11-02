@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4470115661601464580}
   - component: {fileID: 2773113699696598735}
   - component: {fileID: 6234122433109419207}
+  - component: {fileID: 1044462676245761125}
   m_Layer: 8
   m_Name: Barrel_11A
   m_TagString: Obstacle
@@ -27,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7234882892368933780}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.4600002, y: -0.4000001, z: 9.669998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -106,3 +107,17 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 30842f19a8e04473c855bd024dba383b, type: 3}
+--- !u!114 &1044462676245761125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7234882892368933780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a52da3a51e3af447af3453ebce6d573, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstacles: 1
+  health: 5

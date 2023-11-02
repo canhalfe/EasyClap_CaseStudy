@@ -13,7 +13,8 @@ public class ParticlesController : Singleton<ParticlesController>
 
     public void PlayFX(Vector3 position, int fxID)
     {
-        particleList[fxID].transform.position = position;
-        particleList[fxID].Play();
+        ParticleSystem fx = Instantiate(particleList[fxID], transform);
+        fx.transform.position = position;
+        fx.Play();
     }
 }

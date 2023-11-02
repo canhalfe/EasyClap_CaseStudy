@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5944167346028338165}
   - component: {fileID: 1610718732465069901}
   - component: {fileID: 4352717782748500370}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: Bullet
   m_TagString: Weapon
   m_Icon: {fileID: 0}
@@ -32,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.70710677, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0.117, z: 0.579}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 7, y: 7, z: 7}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7788493461811549443}
@@ -103,7 +103,7 @@ MeshCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 7788493461811549443}
   - component: {fileID: 1841682608635164025}
   - component: {fileID: 26060136678427077}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BulletDecal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5101,7 +5101,7 @@ GameObject:
   - component: {fileID: 6246299956533332649}
   - component: {fileID: 2655158354239204972}
   - component: {fileID: 4665167366742730866}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: DustCloud
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9927,7 +9927,7 @@ GameObject:
   - component: {fileID: 856253395487403259}
   - component: {fileID: 5341190147472198079}
   - component: {fileID: 26259544730084832}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HitSpikes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
