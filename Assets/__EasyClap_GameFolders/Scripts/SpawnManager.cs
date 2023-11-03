@@ -7,15 +7,14 @@ public class SpawnManager : MonoBehaviour
 {
     GameManager gameManager;
     ObjectPoolManager objectPoolManager;
-    private float fireRate;
-    
+    //private float fireRate;
     private float timer;
     void Start()
     {
         gameManager = GameManager.Instance;
         objectPoolManager = ObjectPoolManager.Instance;
-        fireRate = gameManager.gameData.fireRate;
-        
+        gameManager.FireRate = gameManager.gameData.fireRate;
+        timer = gameManager.FireRate;
     }
 
     void Update()
@@ -27,7 +26,7 @@ public class SpawnManager : MonoBehaviour
     private void Shoot()
     {
         timer += Time.deltaTime;
-        if (timer >= fireRate)
+        if (timer >= gameManager.FireRate)
         {
             GameObject weapon = objectPoolManager.GetPool(gameManager.gunID);
             weapon.transform.position = transform.position;

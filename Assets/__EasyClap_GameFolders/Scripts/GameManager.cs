@@ -12,12 +12,27 @@ public enum Obstacles
 //    Shuriken,
 //    Pistol
 //}
+public enum GateTypes
+{
+    FireRate,
+    Range,
+    Power
+}
+public enum GateColor
+{
+    Green,
+    Red
+}
 
 public class GameManager : Singleton<GameManager>
 {
     public GameData gameData;
+    public UIManager uiManager;
     public bool gameStart;
     public int gunID;
+    [SerializeField]private float fireRate;
+
+    public float FireRate { get => fireRate; set => fireRate = value; }
 
     void Start()
     {
@@ -25,6 +40,10 @@ public class GameManager : Singleton<GameManager>
     }
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0)) gameStart = true;
+        if (Input.GetMouseButtonDown(0))
+        {
+            gameStart = true;
+            uiManager.tutorialImage.gameObject.SetActive(false);
+        }
     }
 }

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4682295362653183224}
   - component: {fileID: 4218520107509137820}
+  - component: {fileID: 5869669169613955300}
   m_Layer: 10
   m_Name: CollectCoin
   m_TagString: Untagged
@@ -52,6 +53,19 @@ MonoBehaviour:
     value: {x: 0, y: 200, z: 0}
     space: 0
   ignoreTimescale: 0
+--- !u!114 &5869669169613955300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6757392592933888609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 935da2b294e765e47a1f61c853dd45f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  price: 0
 --- !u!1 &8458528877092479701
 GameObject:
   m_ObjectHideFlags: 0

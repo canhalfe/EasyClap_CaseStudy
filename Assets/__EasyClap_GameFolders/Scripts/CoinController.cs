@@ -4,5 +4,7 @@ using UnityEngine;
 
 public class CoinController : MonoBehaviour
 {
-    public float price;
+    [SerializeField]private float price;
+
+    public float Price { get => price; set => price = value; }
 }

@@ -16,18 +16,42 @@ public class PlayerController : MonoBehaviour
     {
         if (other.CompareTag("coin")) CollectCoin(other.transform);
 
-        if (other.CompareTag("Obstacle")) ThrowYourselfBack();
+        if (other.CompareTag("Obstacle")) ThrowYourselfBack(other.transform);
+
+        if (other.CompareTag("Door"))
+        {
+            UpdateInGameSkills(other.transform);   
+        }
     }
 
-    private void ThrowYourselfBack()
+    private void UpdateInGameSkills(Transform gate)
+    {
+        GateController gateController = gate.GetComponent<GateController>();
+        switch (gateController.gateTypes)
+        {
+            case GateTypes.FireRate:
+                gameManager.FireRate -= gateController.gateValue;
+                break;
+            case GateTypes.Range:
+                
+                break;
+            case GateTypes.Power:
+
+                break;
+        }
+    }
+
+    private void ThrowYourselfBack(Transform obstacle)
     {
         transform.parent.transform.DOMoveZ(transform.position.z - 2.2f, .3f).SetEase(Ease.Flash).SetUpdate(UpdateType.Fixed);
+        obstacle.gameObject.layer = 11;
     }
 
     private void CollectCoin(Transform coin)
     {
-        coin.gameObject.SetActive(false);
         ParticlesController.Instance.PlayFX(coin.position, 3);
-        gameManager.gameData.totalCoin += coin.GetComponent<CoinController>().price;
+        gameManager.gameData.totalCoin += coin.GetComponentInParent<CoinController>().Price;
+        coin.gameObject.SetActive(false);
+        gameManager.uiManager.RefreshCoinText();
     }
 }
