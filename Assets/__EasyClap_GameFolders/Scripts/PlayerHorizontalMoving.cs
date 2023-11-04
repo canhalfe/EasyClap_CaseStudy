@@ -25,9 +25,10 @@ public class PlayerHorizontalMoving : MonoBehaviour
 
             if (Input.GetMouseButtonDown(0))
             {
+                Vector3 asd = GetMouseAsWorldPoint();
                 mZCoord = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
 
-                mOffset = gameObject.transform.position - GetMouseAsWorldPoint();
+                mOffset = gameObject.transform.position - asd;
             }
 
             if (Input.GetMouseButton(0))

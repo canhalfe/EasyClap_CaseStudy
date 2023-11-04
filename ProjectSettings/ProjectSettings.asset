@@ -136,7 +136,10 @@ PlayerSettings:
   vulkanEnableCommandBufferRecycling: 1
   loadStoreDebugModeEnabled: 0
   bundleVersion: 1.0.2
-  preloadedAssets: []
+  preloadedAssets:
+  - {fileID: -759561429604512618, guid: 4e826fbc71af14f4b89b481cd8c0a243, type: 2}
+  - {fileID: 11400000, guid: df6162a1bf252a54d9c74a62854ac0a7, type: 2}
+  - {fileID: 11400000, guid: c3f71b24825bb124d96caaa3508a2bbe, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -155,7 +158,8 @@ PlayerSettings:
   resetResolutionOnWindowResize: 0
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
-  applicationIdentifier: {}
+  applicationIdentifier:
+    Android: com.DefaultCompany.EasyClapCaseProject
   buildNumber:
     Standalone: 0
     VisionOS: 0

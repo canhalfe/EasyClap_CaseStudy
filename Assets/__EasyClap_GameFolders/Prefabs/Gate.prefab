@@ -698,10 +698,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad80b5180db3ea44fbd3989d29cb1310, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gateTypes: 0
-  gateColor: 1
-  gateValue: 12
-  gateIncreaseValue: 3
+  gateTypes: 2
+  gateColor: 0
+  gateValue: 1
+  gateIncreaseValue: 0.1
   gate: {fileID: 401451975056416941}
   digitSlot: {fileID: 828094533920700732}
   glow: {fileID: 3422564413738576489}

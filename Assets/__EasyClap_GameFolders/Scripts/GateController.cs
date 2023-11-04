@@ -39,7 +39,9 @@ public class GateController : MonoBehaviour
                 gateName.text = "POWER";
                 break;
         }
-        gateValue *= -1;
+        if (gateColor == GateColor.Red)
+            gateValue *= -1;
+
         RefreshGateValues();
         RefreshGateColor();
     }
@@ -84,6 +86,7 @@ public class GateController : MonoBehaviour
     private void ChangeDoorValue()
     {
         gateValue += gateIncreaseValue;
+        gateValue = (float)Math.Round(gateValue, 1);
         RefreshGateValues();
     }
 }

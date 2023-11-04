@@ -18,25 +18,26 @@ public class PlayerController : MonoBehaviour
 
         if (other.CompareTag("Obstacle")) ThrowYourselfBack(other.transform);
 
-        if (other.CompareTag("Door"))
-        {
-            UpdateInGameSkills(other.transform);   
-        }
+        if (other.CompareTag("Door")) UpdateInGameSkills(other.transform);   
+        
+        if (other.CompareTag("Chest")) LevelFinished();   
     }
 
     private void UpdateInGameSkills(Transform gate)
     {
         GateController gateController = gate.GetComponent<GateController>();
+        gate.GetComponent<BoxCollider>().enabled = false;
         switch (gateController.gateTypes)
         {
             case GateTypes.FireRate:
                 gameManager.FireRate -= gateController.gateValue;
                 break;
             case GateTypes.Range:
-                
+                gameManager.Distance += gateController.gateValue;
                 break;
             case GateTypes.Power:
-
+                gameManager.Power += gateController.gateValue;
+                gameManager.Power = Mathf.Round(gameManager.Power);
                 break;
         }
     }
@@ -53,5 +54,11 @@ public class PlayerController : MonoBehaviour
         gameManager.gameData.totalCoin += coin.GetComponentInParent<CoinController>().Price;
         coin.gameObject.SetActive(false);
         gameManager.uiManager.RefreshCoinText();
+    }
+
+    private void LevelFinished()
+    {
+        gameManager.gameStart = false;
+        gameManager.CanPlay = false;
     }
 }

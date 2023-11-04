@@ -9,4 +9,6 @@ public class GameData : ScriptableObject
     public float distance;
     public float power;
 
+    [Header("Game Control")]
+    public int levelId;
 }

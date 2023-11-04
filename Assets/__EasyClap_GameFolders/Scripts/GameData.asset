@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c39286b806255be4ab6e152827e49744, type: 3}
   m_Name: GameData
   m_EditorClassIdentifier: 
-  totalCoin: 9052
+  totalCoin: 1496.6
   fireRate: 0.5
-  distance: 15
+  distance: 10
   power: 1
+  levelId: 0

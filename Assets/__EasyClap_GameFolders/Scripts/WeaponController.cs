@@ -4,31 +4,24 @@ using UnityEngine;
 
 public class WeaponController : MonoBehaviour
 {
-    [SerializeField]GameManager gameManager;
+    GameManager gameManager;
     ObjectPoolManager poolManager;
-    [SerializeField]private float distance = 10;
-    private float power;
-    private float gunID;
+
     public Transform spPoint;
+    private float gunID;
 
-    public float Power { get => power; set => power = value; }
-
-    private void Awake()
-    {
-        gameManager = GameManager.Instance;
-    }
     void Start()
     {
+        gameManager = GameManager.Instance;
         poolManager = ObjectPoolManager.Instance;
-        distance = gameManager.gameData.distance;
-        Power = gameManager.gameData.power;
+        
         gunID = gameManager.gunID;
     }
 
     void Update()
     {
         float tempDistance = transform.position.z - spPoint.position.z;
-        if (tempDistance >= distance)
+        if (tempDistance >= gameManager.Distance)
         {
             GetBackToPool();
         }
@@ -36,7 +29,7 @@ public class WeaponController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Door") || other.CompareTag("Obstacle"))
+        if (other.CompareTag("Door") || other.CompareTag("Obstacle") || other.CompareTag("Chest"))
         {
             GetBackToPool();
         }

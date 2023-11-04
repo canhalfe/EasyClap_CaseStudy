@@ -7,13 +7,12 @@ public class SpawnManager : MonoBehaviour
 {
     GameManager gameManager;
     ObjectPoolManager objectPoolManager;
-    //private float fireRate;
     private float timer;
+
     void Start()
     {
         gameManager = GameManager.Instance;
         objectPoolManager = ObjectPoolManager.Instance;
-        gameManager.FireRate = gameManager.gameData.fireRate;
         timer = gameManager.FireRate;
     }
 
@@ -32,9 +31,8 @@ public class SpawnManager : MonoBehaviour
             weapon.transform.position = transform.position;
             weapon.GetComponent<WeaponController>().spPoint = transform;
             timer = 0;
-            transform.parent.GetComponent<Animator>().SetBool("Shoot", true);
+            //transform.parent.GetComponent<Animator>().SetTrigger("Shot");
+            transform.parent.parent.GetComponent<Animator>().SetTrigger("Shoot");
         }
-        else
-            transform.parent.GetComponent<Animator>().SetBool("Shoot", false);
     }
 }

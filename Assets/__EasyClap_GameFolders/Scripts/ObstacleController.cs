@@ -2,36 +2,42 @@ using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class ObstacleController : MonoBehaviour
 {
-    private List<Transform> brickList = new();
+    GameManager gameManager;
     ParticlesController particlesController;
+    [SerializeField]private List<Transform> brickList = new();
     public Obstacles obstacles;
     public float health;
     public float price;
+
+    [Header("GateUI")]
+    public TextMeshProUGUI healthText;
+
     void Start()
     {
+        gameManager = GameManager.Instance;
         particlesController = ParticlesController.Instance;
         if (health <= 0) health = 3;
         if (price <= 0) price = 10;
-        if (obstacles == Obstacles.Wall)
-        {
-            Transform parent = transform;
-            foreach (Transform child in parent)
-            {
-                brickList.Add(child);
-            }
-        }
+        UpdateHealthText();
+    }
+
+    private void UpdateHealthText()
+    {
+        healthText.text = health.ToString();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Weapon"))
         {
-            health -= other.GetComponent<WeaponController>().Power;
+            health -= gameManager.Power;
+            UpdateHealthText();
             if (health <= 0)
             {
                 Blow();
@@ -49,15 +55,10 @@ public class ObstacleController : MonoBehaviour
         {
             Transform brick = brickList[brickList.Count - 1];
             Rigidbody rb = brick.GetComponent<Rigidbody>();
-            int rnd = 0;
-            int rnd2 = 0;
-            rnd = UnityEngine.Random.Range(-1, 1);
-            rnd2 = UnityEngine.Random.Range(100, 250);
-            //brick.DOJump
-            //    (new Vector3(transform.position.x + rnd, 0.1f, transform.position.z + 1), 2f, 1, 1f).SetEase(Ease.Linear).SetUpdate(UpdateType.Fixed);
+            int rnd = UnityEngine.Random.Range(-1, 1);
+            int rnd2 = UnityEngine.Random.Range(100, 250);
             brick.AddComponent<BoxCollider>();
             rb.useGravity = true;
-            //rb.mass = 1f;
             rb.AddForce(Vector3.forward * rnd2 + Vector3.up * rnd2 + Vector3.right * rnd * rnd2/2);
             brickList.Remove(brick);
         }
@@ -67,8 +68,6 @@ public class ObstacleController : MonoBehaviour
     {
         SpawnCoin();
         gameObject.SetActive(false);
-        //if (particlesController.particleList.Count <= 0)
-        //    return;
 
         switch (obstacles)
         {
@@ -79,7 +78,6 @@ public class ObstacleController : MonoBehaviour
                 particlesController.PlayFX(transform.position, 1);
                 break;
         }
-        
     }
 
     private void SpawnCoin()

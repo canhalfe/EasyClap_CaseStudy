@@ -12,6 +12,7 @@ TagManager:
   - Bullet
   - Obstacle
   - Door
+  - Chest
   layers:
   - Default
   - TransparentFX
@@ -25,7 +26,7 @@ TagManager:
   - Door
   - Collectible
   - Obstacle2
-  - 
+  - Chest
   - 
   - 
   - 
