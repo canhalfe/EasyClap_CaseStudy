@@ -22,7 +22,7 @@ public class SwipeController : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if (!gameManager.gameStart) return;
+        if (!gameManager.gameStart || !gameManager.CanPlay) return;
 
         transform.position += forwardSpeed * Time.deltaTime * transform.forward;
 
@@ -32,6 +32,7 @@ public class SwipeController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            if (!gameManager.gameStart || !gameManager.CanPlay) return;
             _mouse_pos_start = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10f));
             
             start_position_x = transform.position.x;

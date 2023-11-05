@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
 
         if (other.CompareTag("Door")) UpdateInGameSkills(other.transform);   
         
-        if (other.CompareTag("Chest")) LevelFinished();   
+        if (other.CompareTag("Chest")) gameManager.LevelFinished();   
     }
 
     private void UpdateInGameSkills(Transform gate)
@@ -54,11 +54,5 @@ public class PlayerController : MonoBehaviour
         gameManager.gameData.totalCoin += coin.GetComponentInParent<CoinController>().Price;
         coin.gameObject.SetActive(false);
         gameManager.uiManager.RefreshCoinText();
-    }
-
-    private void LevelFinished()
-    {
-        gameManager.gameStart = false;
-        gameManager.CanPlay = false;
     }
 }

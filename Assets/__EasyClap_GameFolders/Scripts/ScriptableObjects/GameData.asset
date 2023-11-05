@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c39286b806255be4ab6e152827e49744, type: 3}
+  m_Name: GameData
+  m_EditorClassIdentifier: 
+  levelId: 1
+  totalCoin: 20
+  fireRateID: 0
+  rangeID: 0
+  damageId: 0
+  fireRateList:
+  - 1
+  - 0.95
+  - 0.9
+  - 0.85
+  - 0.8
+  - 0.75
+  - 0.7
+  - 0.65
+  - 0.6
+  - 0.55
+  rangeList:
+  - 10
+  - 10.75
+  - 11.5
+  - 12.25
+  - 13
+  - 13.75
+  - 14.5
+  - 15.25
+  - 16
+  - 17
+  damageList:
+  - 1
+  - 1.1
+  - 1.2
+  - 1.3
+  - 1.4
+  - 1.5
+  - 1.6
+  - 1.7
+  - 1.8
+  - 1.9
+  fireRatePrices:
+  - 50
+  - 110
+  - 120
+  - 130
+  - 140
+  - 150
+  - 160
+  - 170
+  - 180
+  - 190
+  rangePrices:
+  - 50
+  - 110
+  - 120
+  - 130
+  - 140
+  - 150
+  - 160
+  - 170
+  - 180
+  - 190
+  damagePrices:
+  - 50
+  - 110
+  - 120
+  - 130
+  - 140
+  - 150
+  - 160
+  - 170
+  - 180
+  - 190

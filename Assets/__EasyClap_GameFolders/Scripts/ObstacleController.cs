@@ -13,7 +13,7 @@ public class ObstacleController : MonoBehaviour
     [SerializeField]private List<Transform> brickList = new();
     public Obstacles obstacles;
     public float health;
-    public float price;
+    private float price;
 
     [Header("GateUI")]
     public TextMeshProUGUI healthText;
@@ -23,7 +23,7 @@ public class ObstacleController : MonoBehaviour
         gameManager = GameManager.Instance;
         particlesController = ParticlesController.Instance;
         if (health <= 0) health = 3;
-        if (price <= 0) price = 10;
+        price = health * 10;
         UpdateHealthText();
     }
 
@@ -37,6 +37,7 @@ public class ObstacleController : MonoBehaviour
         if (other.CompareTag("Weapon"))
         {
             health -= gameManager.Power;
+            health = Mathf.Round(health);
             UpdateHealthText();
             if (health <= 0)
             {
@@ -61,6 +62,7 @@ public class ObstacleController : MonoBehaviour
             rb.useGravity = true;
             rb.AddForce(Vector3.forward * rnd2 + Vector3.up * rnd2 + Vector3.right * rnd * rnd2/2);
             brickList.Remove(brick);
+            GetComponent<AudioSource>().Play();
         }
     }
 

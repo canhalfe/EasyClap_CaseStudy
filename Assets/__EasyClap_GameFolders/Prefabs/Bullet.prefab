@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveUnitsPerSecond:
-    value: {x: 0, y: 0, z: 8}
+    value: {x: 0, y: 0, z: 12}
     space: 0
   rotateDegreesPerSecond:
     value: {x: 0, y: 0, z: 300}
@@ -168,8 +168,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57b3fc4ca696bda438f01e5f61ad0529, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 0}
-  distance: 10
   spPoint: {fileID: 0}
 --- !u!1 &4184949731473850362
 GameObject:

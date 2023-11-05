@@ -6,8 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/__EasyClap_GameFolders/Scenes/EasyClap_Scene_v_3.unity
-    guid: 8fca8aab73b31024a8e6244610f3e262
+    path: Assets/__EasyClap_GameFolders/Scenes/Levels/Lv_1.unity
+    guid: 56ffa73f1095c4c42a953192fae7394f
+  - enabled: 1
+    path: Assets/__EasyClap_GameFolders/Scenes/Levels/Lv_2.unity
+    guid: e67affd88f500a34f970734a77752e48
+  - enabled: 1
+    path: Assets/__EasyClap_GameFolders/Scenes/Levels/Lv_3.unity
+    guid: 3c01b223fdf324f4f942a8b6720de0e4
   m_configObjects:
     com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000,
       guid: c3f71b24825bb124d96caaa3508a2bbe, type: 2}

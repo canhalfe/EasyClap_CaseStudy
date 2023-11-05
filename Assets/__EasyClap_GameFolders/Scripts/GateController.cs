@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -78,8 +79,13 @@ public class GateController : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Weapon"))
-        {
             ChangeDoorValue();
+
+        if (other.CompareTag("Player"))
+        {
+            GetComponent<BoxCollider>().enabled = false;
+            GetComponent<AudioSource>().Play();
+            transform.DOMoveY(transform.position.y - 3, 1f);
         }
     }
 

@@ -7,19 +7,22 @@ public class SpawnManager : MonoBehaviour
 {
     GameManager gameManager;
     ObjectPoolManager objectPoolManager;
+    AudioSource audioSource;
     private float timer;
 
     void Start()
     {
         gameManager = GameManager.Instance;
         objectPoolManager = ObjectPoolManager.Instance;
+        audioSource = GetComponent<AudioSource>();
         timer = gameManager.FireRate;
     }
 
     void Update()
     {
-        if (gameManager.gameStart)
-            Shoot();
+        if (!gameManager.gameStart || !gameManager.CanPlay) return;
+
+        Shoot();
     }
 
     private void Shoot()
@@ -33,6 +36,7 @@ public class SpawnManager : MonoBehaviour
             timer = 0;
             //transform.parent.GetComponent<Animator>().SetTrigger("Shot");
             transform.parent.parent.GetComponent<Animator>().SetTrigger("Shoot");
+            audioSource.Play();
         }
     }
 }

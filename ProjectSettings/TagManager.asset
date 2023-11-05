@@ -13,6 +13,7 @@ TagManager:
   - Obstacle
   - Door
   - Chest
+  - GameStart
   layers:
   - Default
   - TransparentFX
